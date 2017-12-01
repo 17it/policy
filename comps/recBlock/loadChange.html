@@ -1,0 +1,20 @@
+<!--查看更多和换一换开始-->
+    <? if ($data.moreLink&&$data.moreTxt || $data.changeOneChange) { ?>
+    <ul class="boxFlex loadChange">
+        <? if ($data.moreLink&&$data.moreTxt) { ?>
+        <li class="checkBox j-exposure-stat <? if(!$data.changeOneChange){ echo 'noBorder' } ?> " data-ap="msite_<? echo $data.ename ?>_jump_getmore_<? echo $data.fragId ?>_all_<? echo $data.region ?>" data-acode='41'>
+            <a href="javascript:;" data-href="<?= moreLink ?>"  k-name="send-stat-any" data-stat="{acode:'0',ap:'msite_<? echo $data.ename ?>_jump_getmore_<? echo $data.fragId ?>_all_<? echo $data.region ?>'}">
+            <span class="jump_txt">
+                 <?= moreTxt ?>
+            </span>
+            <span class="icon_font icon_tarr1"></span></a></li>
+        <? } ?>
+        <? if ($data.changeOneChange) {?>
+        <li class="changeBox j-exposure-stat" data-id="<? echo $data.fragId ?>" data-ap="msite_<? echo $data.ename ?>_change_getmore_<? echo $data.fragId ?>_all_<? echo $data.region ?>" data-acode='41' >
+            <a href="javascript:;"  k-name="send-stat-any" data-stat="{acode:'0',ap:'msite_<? echo $data.ename ?>_change_getmore_<? echo $data.fragId ?>_all_<? echo $data.region ?>'}"><? echo $data.hyh ?>
+                <span class="icon_font icon_change1 <? if($data.android){ echo 'android'} ?>"></span></a>
+        </li>
+        <? } ?>
+    </ul>
+<? } ?>
+<!--查看更多换一换结束-->

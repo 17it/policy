@@ -1,0 +1,15 @@
+<!-- releaseDate -->
+<% if (description.releaseDate) { %>
+<li>
+    <b><%= htmlReleaseDateLabel %>：</b>
+    <span title="<%= description.releaseDate %>">
+        <% if(htmlReleaseDateHref) { %>
+            <a href="<%= htmlReleaseDateHref %>" target="_blank">
+                <%= description.releaseDate %>
+            </a>
+        <% } else { %>
+            <%= description.releaseDate %>
+        <% } %>
+    </span>
+</li>
+<% } %>

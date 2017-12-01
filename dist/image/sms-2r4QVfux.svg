@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Layouts" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-Share" transform="translate(-204.000000, -622.000000)" fill="#EE7832">
+            <g id="Share-color-circles" transform="translate(0.000000, 601.000000)">
+                <g id="Group-Expanded" transform="translate(12.000000, 0.000000)">
+                    <g id="Shift" transform="translate(0.000000, 21.000000)">
+                        <g id="SMS" transform="translate(192.000000, 0.000000)">
+                            <g id="Combined-Shape">
+                                <path d="M18,0 L18,0 L18,0 C27.9411255,-1.82615513e-15 36,8.0588745 36,18 L36,18 C36,27.9411255 27.9411255,36 18,36 L18,36 C8.0588745,36 4.77015043e-15,27.9411255 3.55271368e-15,18 L0,18 L0,18 C-1.21743675e-15,8.0588745 8.0588745,1.82615513e-15 18,0 L18,0 Z M11.0871065,11.6863023 C10.3101621,11.6863023 9.67806818,12.3165116 9.67806818,13.0911395 L9.67806818,22.112907 C9.67806818,22.8875349 10.3101621,23.5179535 11.0871065,23.5179535 L13.0885622,23.5179535 L11.9536902,27.465814 L17.2119725,23.5181628 L25.3863678,23.5181628 C26.1633122,23.5181628 26.7954061,22.8877442 26.7954061,22.1131163 L26.7954061,13.0913488 C26.7954061,12.3167209 26.1633122,11.6865116 25.3863678,11.6865116 L11.0871065,11.6865116 L11.0871065,11.6863023 Z"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

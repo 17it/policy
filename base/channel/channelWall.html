@@ -1,0 +1,39 @@
+<!--频道墙-->
+<div class="channel_wall" id="j_channelWall">
+    <div class="nav_site_back">
+        <div class="nav_back">
+            <span class="icon_font icon_go_back"></span>
+            <span class="nav_back_title"><?=lang.x800?></span>
+        </div>
+    </div>
+    <section class="column">
+        <!--四个大的-->
+       <div class="pd_nav column_body">
+        <? each $data.specialNav ?>
+            <a data-href="<?=url?>" title="<?=title?>" class="an_temp" href="<?=url?>" k-name="send-stat-any" data-stat="{ap:'msite_common_jump_channel_<?=title?>_<? echo $i+1 ?>_<? echo $data.region ?>'}" >
+                <span class="an_img">
+                    <img src="http://i0.letvimg.com/lc03_img/201607/19/14/39/1436/a_tempBg2.png" />
+                    <i data-src="<?=pic?>"></i>
+                    <span class="an_cnt"><h3 class="main_title_heig"><?=title?></h3></span>
+                </span>
+            </a>
+        <? endeach ?>
+       </div>
+    </section>
+    <nav class="pd_nav1">
+        <ul class="channel_nav channel_nav_4">
+        <? each $data.nav ?>
+            <li<? echo($item.cls ? ' class="'+$item.cls+'"' : '') ?>><a data-href="<?=url?>" href="<?=url?>" k-name="send-stat-any" data-stat="{ap:'msite_common_jump_channel_<?=title?>_<? echo $i+5 ?>_<? echo $data.region ?>'}">
+                <span class="a_tempBg">
+                <span class="a_tempIcon" <? if($item.pic) echo 'style="background-color: #fafcfd;" data-src="'+$item.pic+'"' ?>></span>
+            </span><?=title?></a></li>
+        <? endeach ?>
+        </ul>
+        <div class="shengtaiNav"><?=lang.x005?></div>
+        <ul class="channel_nav">
+        <? each $data.ecoNav ?>
+            <li><a data-href="<?=url?>" href="<?=url?>" ><?=title?></a></li>
+        <? endeach ?>
+        </ul>
+    </nav>
+</div>

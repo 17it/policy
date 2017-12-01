@@ -1,0 +1,10 @@
+<!--筛选栏-->
+<section class="column nav_list borderBot j-exposure-stat" data-acode="<?=acode?>" data-ap="msite_<? echo $data.ename ?>_<? echo $data.report ?>_<? echo $data.fragId ?>_all_<? echo $data.region ?>" >
+    <ul class="nav_cnt j-cnt">
+        <? each $data.videoList ?>
+        <li <? if($item.remark) echo 'class="active"' ?> >
+         <a href="javascript:;" data-href="<?= url ?>" k-name="send-stat-any" data-stat="{acode:'<? echo $data.acode2 ?>',ap:'msite_<? echo $data.ename ?>_<? echo $data.report ?>_<? echo $data.fragId ?>_<? echo $i+1 ?>_<? echo $data.region ?>'}"><?= title ?></a>
+        </li>
+        <? endeach ?>
+    </ul>
+</section>

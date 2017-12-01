@@ -1,0 +1,13 @@
+<!-- 应用推荐 -->
+<section class="column yytj" id="appList" style="display:none" data-acode="19" data-ap="msite_home_appbag_le_exposure">
+    <div class="column_tit">
+        <h2><a href="/other/soft"><?= title ?></a></h2><a href="/other/soft" class="icon_more" title="更多">更多</a></div>
+    <div class="column_body j-nav">
+        <ul class="boxFlex">
+        <? each $data.list ?>
+        	<li><a class="j-app" subtitle="<?=subTitle?>" title="<?=title?>" href="javascript:;" data-href="<?=url?>" style="background-image: url(<?=img?>); background-size:cover;" k-name="send-stat" data-stat="{acode:'0',ap:'msite_home_appbag_le_click'}"></a></li>
+        <? endeach ?>
+        </ul>
+    </div>
+</section>
+<!-- 应用推荐end -->

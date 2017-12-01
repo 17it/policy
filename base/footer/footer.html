@@ -1,0 +1,28 @@
+</div> <!-- main end -->
+</div><!-- layout end -->
+<?=! channelWall ?>
+<?=! cards ?>
+<script>
+ if (info.query.ledebug==='1') {
+  document.write('<scr'+'ipt src="http://sdk.m.le.com/eruda/eruda.min.js"></scr'+'ipt>');
+  document.write('<scr'+'ipt>eruda.init();</scr'+'ipt>');
+ }
+</script>
+<?= jsLink ?>
+<!-- iResearch统计 -->
+<script>
+info.region==='CN' && setTimeout(function(){try{
+	var img = new Image(1, 1); img.onload = function(){img = null};
+	img.src = 'http://irs01.com/irt?_iwt_t=i&_iwt_id=&_iwt_UA=UA-letv-000008&r='+(new Date).getTime();
+	}catch(e){}
+}, 200);
+</script>
+<? if($data.pageid==="home"||$data.pageid==='channel/home') echo `<script type="text/javascript" src="http://js.static.letvlb.com/sdk/passport.js"></script>` ?>
+<!-- iResearch统计 end -->
+<? if ($data.baiduStat) { ?>
+<div style="display:none"><script type="text/javascript">
+ document.write(unescape('%3Cscript src="//hm.baidu.com/h.js%3F3976102fdd6968e8dc5b35fc5351c475" type="text/javascript"%3E%3C/script%3E'));
+</script></div>
+<? } ?>
+</body>
+</html>

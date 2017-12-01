@@ -1,0 +1,67 @@
+<!-- 热门推荐 -->
+<div class="tj_box">
+    <div class="tj_title">
+        <div class="column_title">
+            <h2><a href="javascript:;" title="热门推荐">热门推荐</a></h2>
+        </div>
+    </div>
+    <div class="column_body">
+        <div class="col-tab active">
+            <%- include("./contentItems/" + htmlPlaceholderTpl + ".html") %>
+        </div>
+    </div>
+</div>
+
+<!-- 广告位 -->
+<div class="player">
+    <!-- 广告 -->
+    <%- include("./adBanner.html", {
+            htmlClassName: 'Banner_01',
+            htmlIdName: 'JS_H_ad_3'
+    }) %>
+</div>
+
+<!-- 热播榜 -->
+<div class="rank_box">
+    <ul class="rank_tab one">
+        <li class="" data-type="tv">热播榜</li>
+    </ul>
+    <div class="column_body">
+        <div class="rank tv_list">
+            <!-- 热播榜 -->
+            <ul class="rank_list active">
+                <%
+                    if (hotlist) {
+                        hotlist.forEach(function($item, $i){
+                            if($item.trend == 1) {
+                                $item.direction = 'icon_up';
+                            } else if ($item.trend == -1) {
+                                $item.direction = 'icon_down';
+                            } else {
+                                $item.direction = 'icon_';
+                            }
+                            $item.index = $i + 1;
+                %>
+                <li class="li_0<%= $item.index %>">
+                    <i class="num"><%= $item.index %></i>
+                    <b>
+                        <a href="<%= $item.url %>" title="<%= $item.name %>" target="_blank"><%= $item.name %></a>
+                    </b>
+                    <span class="icon_font <%= $item.direction %>"></span>
+                </li>
+                <%  }) %>
+                <% } %>
+            </ul>
+            <a class="rank_more" href="<%= htmlHotMore %>"  target="_blank" data-state-report="<%= htmlHotMoreAp %>">
+                <span>更多</span>
+                <i class="icon_font icon_more"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- 广告 -->
+<%- include("./adBanner.html", {
+        htmlClassName: 'Banner_01',
+        htmlIdName: 'JS_H_ad_2'
+}) %>

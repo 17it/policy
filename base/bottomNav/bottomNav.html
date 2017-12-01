@@ -1,0 +1,16 @@
+<!-- 公共底部 -->
+<footer class="footer">
+    <!--nav-->
+    <? if ($data.nav.length) {?>
+    <ul class="aboutBox">
+    <? each $data.nav ?>
+        <li><b><a <?=remark?> href="<?=url?>"><?=title?></a></b></li>
+    <? endeach ?>
+    </ul>
+    <? } ?>
+    <div class="beian"><?=copyRight?></div><!--nav-->
+    <div class="up-letv" id="j-btn-showhide">
+        <span><a href="javascript:;" id="j-btn-gotop"><b class="icon_font icon_backtop"></b></a></span>
+    </div>
+</footer>
+<!-- 公共底部end -->

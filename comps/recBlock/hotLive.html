@@ -1,0 +1,87 @@
+<!--热门直播开始-->
+<section class="column borderBot j-exposure-stat <? if($data.isZhichu){ echo 'j-recstatic'}?> " data-acode="<?=acode?>" data-ap="msite_<? echo $data.ename ?>_<? echo $data.report ?>_<? echo $data.fragId ?>_all_<? echo $data.region ?>" <? if($data.isZhichu){ echo 'data-static="'+$data.title+'"' }?>
+>
+    <?= titleAndSubtitle ?>
+    <div class="column_body">
+        <div class="cnt_box j_img_active">
+            <? each $data.videoList ?>
+             <? if($item.status==1) { ?>
+               <a class="a_module a_nobegin" k-name="send-stat-any" data-stat="{acode:'<? echo $data.acode2 ?>',ap:'msite_home_<? echo $data.report ?>_<? echo $data.fragId ?>_<? echo $i+1 ?>_<? echo $data.region ?>'}">
+                    <span class="a_time">
+                        <p><?= hourMin ?></p>
+                        <i><?= MonthDay ?></i>
+                    </span>
+                    <span class="a_txt">
+                        <p><?= type ?></p>
+                        <h3 class="battle_cnt">
+                            <? if($item.isVS) {?>
+                            <img class="battle_logo1" src="<?= homeImgUrl ?>" alt="">
+                            <u class="battle_name1"><?= home ?></u>
+                            <u class="battle_vs">vs</u>
+                            <img class="battle_logo2" src="<?= guestImgUrl ?>" alt="">
+                            <u class="battle_name2"><?= guest ?></u>
+                            <? } else { ?>
+                            <u><?= title ?></u>
+                            <? } ?>
+                        </h3>
+                    </span>
+                    <span class="a_status">
+                        <em><? echo $data.wks ?></em>
+                    </span>
+              </a>
+             <? } else { ?>
+               <a href="javascript:;" data-href="<?= url ?>" title="<?= title ?>" class="a_module <?
+                if($item.status==3){
+                    echo 'a_review'
+                }else if($item.status==2){
+                    echo 'a_live'
+                }
+                ?>" k-name="send-stat-any" data-stat="{acode:'<? echo $data.acode2 ?>',ap:'msite_home_<? echo $data.report ?>_<? echo $data.fragId ?>_<? echo $i+1 ?>_<? echo $data.region ?>'}">
+						<span class="a_img">
+	                        <img src="http://i0.letvimg.com/lc03_img/201607/19/14/39/1436/a_tempBg2.png">
+                            <? if ($data.isFirst) { ?>
+                            <i style="background-image: url('<?=pic?>');"></i>
+                            <? } else { ?>
+                            <i <? if($item.pic) echo 'data-src="'+$item.pic+'"' ?> ></i>
+                            <? } ?>
+                            <? if($item.isVS){ ?>
+                                <h3 class="battle_cnt">
+                                    <img class="battle_logo1" src="<?= homeImgUrl ?>" alt="">
+                                    <u class="battle_vs">VS</u>
+                                    <img class="battle_logo2" src="<?= guestImgUrl ?>" alt="">
+                                </h3>
+                            <? } ?>
+	                    </span>
+						<span class="a_cnt">
+                            <i class="i1"><?= time ?><b><?= type ?></b></i>
+	                    	<h3 class="battle_cnt">
+								<?= title ?>
+							</h3>
+                            <?
+                                var attr = '';
+                                if ($item.isShowCount && $item.id && $item.status===2) {
+                                    attr = 'data-liveid="'+$item.id+'"';
+                                } else if ($item.isShowCount && $item.vid && $item.status===3) {
+                                    attr = 'data-vid="'+$item.vid+'"';
+                                }
+                            ?>
+                            <? if (attr) { ?>
+                            <u class="onlineNum j-onlineNum" <? echo attr ?>>
+                            <i class="icon_font icon_user1"></i>
+                            </u>
+                            <? } ?>
+                            </span>
+                           <!-- <u class="onlineNum j-onlineNum">
+                                <i class="icon_font icon_user1"></i><?= number ?>人正在看
+                            </u>-->
+                        </span>
+
+                </a>
+                <? } ?>
+                <? endeach ?>
+        </div>
+        <? if($data.loadChange){?>
+        <?= loadChange ?>
+        <?}?>
+</section>
+<!--热门直播结束-->

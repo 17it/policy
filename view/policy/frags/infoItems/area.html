@@ -1,0 +1,26 @@
+<!-- 地区 area -->
+<% if (description.descData.area) { %>
+<li>
+    <b>国家/地区：</b>
+    <%
+        var areas = '', pos = 0, length = Object.getOwnPropertyNames(description.descData.area).length;
+        for(var j in description.descData.area) {
+            areas += description.descData.area[j];
+            if(pos !== length - 1) {
+                areas += '/';
+            }
+            pos ++;
+        }
+    %>
+    <span title="<%= areas %>">
+        <% var pos = 0, index = 0, length = Object.getOwnPropertyNames(description.descData.area).length;
+           for(var i in description.descData.area){ %>
+        <a href="<%= description.descData.areaLink[index++] %>" target="_blank">
+            <%= description.descData.area[i] %>
+            <% if(pos !== (length-1)) { %> <i class="sprit">/</i> <% } %>
+        </a>
+        <% pos ++;
+        } %>
+    </span>
+</li>
+<% } %>

@@ -1,0 +1,132 @@
+<%- include("./frags/head.html", {
+    htmlType: 'comic',
+    htmlCid: 5,
+    htmlName: '动漫',
+    htmlTitle: '_动漫_全集在线观看-乐视网',
+    htmlKeyword: '_动漫，' + description.name + '全集，' + description.name + '在线观看',
+    htmlDesc: description.descData.description
+}) %>
+
+<!--头部-->
+<div class="details_top">
+    <div class="top_inner">
+        <%- include("./frags/top_inner_left.html") %>
+        <div class="inner_right">
+            <%- include("./frags/top_inner_right_tit.html", {htmlCode: 'ch=detail&pg=comicdetails&bk=detailtitle', htmlHref: '//comic.le.com'}) %>
+            <%- include("./frags/infoItems/gengxin.html", {
+                    htmlGengxinLabel: '集'
+            }) %>
+            <!-- alias 别名, releaseDate 首播, playStatus 更新时间, score 评分，directory 主创， starring 声优，area 地区， subCategory 类型， playNum 总播放数，commNum 总评论数, officialUrl 进入专题-->
+            <%- include("./frags/top_inner_right_con.html", {
+                    htmlReleaseDateLabel: '首播',
+                    htmlPlayStatusLabel: '更新时间',
+                    htmlDirectoryLabel: '主创',
+                    htmlStarringLabel: '声优',
+                    htmlItems: ['alias', 'releaseDate', 'playStatus', 'score', 'directory', 'starring', 'area', 'subCategory', 'playNum', 'commNum', 'officialUrl'],
+                    htmlReleaseDateHref: 'http://list.le.com/listn/c5_t-1_a-1_y' + description.releaseDate.substr(0,4) + '_vt-1_f-1_s1_lg-1_st-1_md_o20_d1_p.html'
+            }) %>
+            <%- include("./frags/top_inner_right_des.html") %>
+            <%- include("./frags/top_inner_right_botm.html") %>
+        </div>
+    </div>
+</div>
+
+<!--头部下方-->
+<div class="column" id="top" name="top">
+    <!--左侧-->
+    <div class="col_20">
+        <div class="column_title left_tit">
+            <ul class="tab_lists">
+                <li class="active" curname="gl"><a href="javascript:;">概览</a></li>
+                <% if(otherComic.length) { %><li curname="zbdp" data="{'aid': '<%= info.pid %>', 'platform': 'pc'}"><a href="javascript:;">周边短片</a></li><% } %>
+                <% if(yugaoInfo){ %><li curname="ygp" data="{'pid': '<%= info.pid %>', 'platform': 'pc'}"><a href="javascript:;">预告片</a></li><% } %>
+                <li curname="comment"><a href="javascript:;">乐迷畅谈</a></li>
+            </ul>
+        </div>
+        <div class="tab_cnt list_box">
+            <div class="list_box gl_child">
+                <!--juji-->
+                <%- include("./frags/contentItems/juji.html") %>
+
+                <!--周边短片-->
+                <% if (otherComic.length) { %>
+                <div class="best_play first_zbdp" id="first_zbdp" data-state-area="ch=detail&pg=comicdetails&bk=first_zbdp">
+                    <div class="column_title">
+                        <h2><a href="javascript:;" category="zbdp">周边短片</a></h2>
+                        <% if (otherComic.length > 3) { %>
+                        <a class="j-more more" href="javascript:;" category="zbdp"><span>更多</span><i class="icon_font icon_more"></i></a>
+                        <% } %>
+                    </div>
+                    <div class="show_cnt best_dl column_body">
+                        <% otherComic.forEach(function($item, $i){ %>
+                        <%
+                            var hide_flag = '';
+                            if($i === 3) {
+                                hide_flag = 'hide_1024';
+                            } else if ($i === 4) {
+                                hide_flag ='hide_1280';
+                            }
+                            var ico = '';
+                            var iconame = '';
+                            if ($item.chargeType === 1) {
+                                ico = 'ico_vip';
+                                iconame = '会员';
+                            }  else if ($item.chargeType === 2) {
+                                ico = 'ico_vpay';
+                                iconame = '付费';
+                            }  else if ($item.chargeType === 3) {
+                                ico = 'ico_vcoupons';
+                                iconame = '用券';
+                            }
+                        %>
+                        <div class="col_4 <%= hide_flag %>" index="<%= $i %>">
+                            <dl class="dl_temp">
+                                <dd class="d_img">
+                                    <a href="http://www.le.com/ptv/vplay/<%= $item.vid %>.html" target="_blank" title="<%= $item.title %>">
+                                        <img src="http://i2.letvimg.com/lc04_img/201607/01/10/55/dl_temp.png">
+                                        <i data-src="<%= $item.pic %>"></i>
+                                        <span class="video_info"><%= $item.videoDuration %></span>
+                                        <em class="<%= ico %>"><%= iconame ? iconame : '' %></em>
+                                    </a>
+                                </dd>
+                                <dt class="d_tit">
+                                    <a href="http://www.le.com/ptv/vplay/<%= $item.vid %>.html" target="_blank" title="<%= $item.title %>"><%= clipStr($item.title, 28, 31, '...') %></a>
+                                </dt>
+                                <dd class="d_cnt"><%= $item.subtitle || '' %></dd>
+                            </dl>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+                <% } %>
+
+                <!--预告片-->
+                <%- include("./frags/contentItems/yugaoInfo.html", {htmlAp:'ch=detail&pg=comicdetails&bk=first_ygp'}) %>
+
+                <!-- 广告 -->
+                <%- include("./frags/adBanner.html", {
+                        htmlClassName: 'Banner',
+                        htmlIdName: 'JS_H_ad_1'
+                }) %>
+
+                <!--乐迷评论-->
+                <%- include("./frags/comment_box.html") %>
+            </div>
+            <div class="list_box zbdp_child" id="zbdp_child" style="display:none"></div>
+            <div class="list_box ygp_child" id="ygp_child" style="display: none;"></div>
+            <div class="list_box comment_child" style="display:none">
+                <%- include("./frags/comment_box.html") %>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右侧-->
+    <div class="col_6">
+        <%- include("./frags/bottom_right.html", {
+                htmlPlaceholderTpl: 'rec_comic_placeholder',
+                htmlHotMore: 'http://top.le.com/comichp.html',
+                htmlHotMoreAp: 'ch=detail&pg=comicdetails&bk=hot_rank&num=more'
+        }) %>
+    </div>
+</div>
+<%- include("./frags/tail.html") %>

@@ -1,0 +1,55 @@
+<!--专题开始-->
+<section class="column borderBot j-exposure-stat  <? if($data.isZhichu){ echo 'j-recstatic'}?>"  data-id="<? echo $data.fragId ?>" data-acode="<?=acode?>" data-ap="msite_<? echo $data.ename ?>_<? echo $data.report ?>_<? echo $data.fragId ?>_p1_<? echo $data.region ?>" <? if($data.isZhichu){ echo 'data-static="'+$data.title+'"' }?>
+>
+    <?= titleAndSubtitle ?>
+    <div class="column_body">
+        <div class="cnt_box j_img_active">
+            <? each $data.videoList ?>
+            <?
+                var className = 'a_temp a_temp_one',
+                    dataHref = 'data-href="'+$item.url+'"',
+                    dataPid = '';
+                if ($item.isAutoPid) {
+                    className += ' j_autopid';
+                    dataHref = '';
+                    dataPid = 'data-pid="'+$item.pid+'"';
+                }
+                if ($item.payPlatform && $item.payPlatform['141001']) {
+                    className += ' j_a_pay'
+                }
+                if (($i+1)%$data.d==1||($i+1)%$data.d==2||$data.d==2) {
+                    className += ' j_a_app'
+                }
+            ?>
+            <a href="javascript:;" <?echo dataHref?> title="<?=title?>" class="<?echo className?>" data-vid="<?=vid?>" <?echo dataPid?>
+                k-name="send-stat-any" data-stat="{acode:'<?echo $item.acode2 ? $item.acode2 : $data.acode2?>',
+            ap:'msite_<? echo $data.ename ?>_<? echo $data.report ?>_<? echo $data.fragId ?>_<? echo $i+1+$data.a1 ?>_<? echo $data.region ?>', vid:'<?echo ($item.vid||'-')?>', pid:'<?echo ($item.pid||'-');?>'}">
+
+                <span class="a_img">
+                    <img src="http://i1.letvimg.com/lc03_img/201607/19/14/39/1436/atempBg.png">
+                    <? if ($data.isFirst) { ?>
+                    <i style="background-image: url('<?=pic?>');"></i>
+                    <? } else { ?>
+                    <i <? if($item.pic) echo 'data-src="'+$item.pic+'"' ?> ></i>
+                    <? } ?>
+                </span>
+                <span class="a_cnt">
+                <? if (!$item.title) {
+                    $item.title = $item.subTitle;
+                    $item.subTitle = '';
+                }?>
+                    <h3 <?echo $item.subTitle ? ' class="main_title_heig"' : ' class="titTwoline"' ?>><?=title?></h3>
+                    <? if ($item.subTitle) { ?>
+                    <p><?= subTitle ?></p>
+                    <? } ?>
+                </span>
+            </a>
+            <? endeach ?>
+        </div>
+        <!-- <div class="loadBox"><a href="javascript:;">查看更多<span class="icon_font icon_tarr"></span></a></div> -->
+        <? if($data.loadChange) { ?>
+        <?= loadChange ?>
+        <? } ?>
+    </div>
+</section>
+<!--专题结束-->

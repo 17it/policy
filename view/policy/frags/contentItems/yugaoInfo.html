@@ -1,0 +1,38 @@
+<!--预告片-->
+<% if (yugaoInfo) { %>
+<div id="first_ygp" data-state-area="ch=detail&pg=tvdetails&bk=first_ygp">
+    <div class="column_title">
+        <h2><a href="javascript:;" category="ygp" title="预告片">预告片</a></h2>
+        <% if (yugaoInfo.length > 3) { %>
+        <a class="j-more more" href="javascript:;" category="ygp"><span>更多</span><i class="icon_font icon_more"></i></a>
+        <% } %>
+    </div>
+    <div class="column_body show_cnt best_dl">
+        <%
+            yugaoInfo.forEach(function($item, $i) {
+                var hide_flag = '';
+                if ($i === 3) {
+                    hide_flag = 'hide_1024';
+                } else if($i === 4) {
+                    hide_flag ='hide_1280';
+                }
+        %>
+        <div class="col_4 <%= hide_flag %>" index="<%= $i %>">
+            <dl class="dl_temp">
+                <dd class="d_img">
+                    <a href="<%= $item.videoUrl %>" target="_blank" title="<% $item.title %>">
+                        <img src="http://i2.letvimg.com/lc04_img/201607/01/10/55/dl_temp.png">
+                        <i data-src="<%= $item.pic %>"></i>
+                        <span class="video_info"><%= $item.duration %></span>
+                    </a>
+                </dd>
+                <dt class="d_tit">
+                    <a href="<%= $item.videoUrl %>" target="_blank" title="<%= $item.title %>"><%= clipStr($item.title, 28, 31, '...') %></a>
+                </dt>
+                <dd class="d_cnt"><%= $item.subtitle || '' %></dd>
+            </dl>
+        </div>
+        <% }) %>
+    </div>
+</div>
+<% } %>

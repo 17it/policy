@@ -1,0 +1,30 @@
+<div class="column_tit">
+    <h2><a href="javascript:;"><?= title ?></a></h2>
+
+    <? if ($data.ename=="home"&&!$data.isZhichu) { ?>
+
+        <div class="custom_tip j-exposure-stat">
+            <? echo $data.dwkzdykp ?>
+        </div>
+        <a href="javascript:;" class="icon_custom j-exposure-stat" data-acode="41">
+            <span class="icon_font icon_top icon_card_manage " k-name="send-stat-any" data-stat="{acode:'0',ap:'msite_home_jump_manage_<? echo $data.fragId ?>_all_<? echo $data.region ?>'}"></span>
+            <span class="icon_font icon_sort icon_card_top "  k-name="send-stat-any" data-stat="{acode:'0',ap:'msite_home_setting_top_<? echo $data.fragId ?>_all_<? echo $data.region ?>'}"></span>
+            <i class="icon_font icon_close1 j-exposure-stat"
+               data-ap='msite_home_setting_rank_<? echo $data.fragId ?>_all_<? echo $data.region ?>'
+               k-name="send-stat-any"
+               data-stat="{acode:'0',ap:'msite_home_setting_rank_<? echo $data.fragId ?>_all_<? echo $data.region ?>'}"></i>
+        </a>
+
+    <? } else { ?>
+        <? if ($data.subLink && $data.subTxt) { ?>
+            <a href="javascript:;" data-href="<?= subLink ?>" class="icon_more j-exposure-stat" k-name="send-stat-any" data-acode="41"
+               data-ap="msite_<? echo $data.ename ?>_jump_tuiguang_<? echo $data.fragId ?>_all_<? echo $data.region ?>"
+               data-stat="{acode:'0',ap:'msite_<? echo $data.ename ?>_jump_tuiguang_<? echo $data.fragId ?>_all_<? echo $data.region ?>'}">
+                <span><?= subTxt ?></span>
+                <span class="icon_font icon_tarr1"></span>
+            </a>
+        <?
+        }
+    }
+    ?>
+</div>

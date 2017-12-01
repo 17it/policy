@@ -1,0 +1,34 @@
+<!--今日热点开始-->
+<section class="column borderBot j-exposure-stat  <? if($data.isZhichu){ echo 'j-recstatic'}?>"  data-id="<? echo $data.fragId ?>" data-acode="<?=acode?>" data-ap="msite_<? echo $data.ename ?>_<? echo $data.report ?>_<? echo $data.fragId ?>_p1_<? echo $data.region ?>" <? if($data.isZhichu){ echo 'data-static="'+$data.title+'"' }?>
+>
+    <?= titleAndSubtitle ?>
+    <div class="column_body">
+
+        <!--先是文字-->
+        <?
+          $data.videoList = $data.videoList.slice($data.a1);
+        ?>
+        <? each $data.videoList ?>
+        <? if (($i+1)%$data.d==1) { ?>
+        <div class="hotList j_changeBox" <? if($i!=0 ){ echo 'style="display:none;"' }?>>
+        <ul>
+        <? } ?>
+          <li>
+              <a href="javascript:;" data-href="<?=url?>" title="<?=title?>"  data-vid="<?=vid?>"
+                <? if($item.payPlatform && $item.payPlatform['141001']) {echo ' data-pay="'+$item.payPlatform['141001']+'"';} ?> k-name="send-stat-any" data-stat="{acode:'<?echo $item.acode2 ? $item.acode2 : $data.acode2?>',ap:'msite_<? echo $data.ename ?>_<? echo $data.report ?>_<?echo $data.fragId ?>_<? echo $i+1 ?>_<? echo $data.region ?>', vid:'<?echo ($item.vid||'-')?>', pid:'<?echo ($item.pid||'-');?>'}">
+                  <i class="icon_font icon_living"></i>
+                  <? echo  $item.title +" "+$item.subTitle ?>
+              </a>
+          </li>
+        <? if (($i+1)%$data.d==0) { ?>
+        </ul>
+        </div>
+        <? } ?>
+        <? endeach ?>
+
+    <? if($data.loadChange){?>
+    <?= loadChange ?>
+    <?}?>
+  </div>
+</section>
+<!--今日热点结束-->

@@ -1,0 +1,13 @@
+[
+    {
+        "name": "lepc",
+        "script": "app.js",
+        "merge_logs" : true,
+        "error_file": "/letv/logs/node/err.log",
+        "out_file": "/letv/logs/node/out.log",
+        "pid_file": "/letv/logs/node/lepc.pid",
+        "log_date_format": "YYYY-MM-DD HH:mm",
+        "max_memory_restart": "500M",
+        "instances": 12
+    }
+]

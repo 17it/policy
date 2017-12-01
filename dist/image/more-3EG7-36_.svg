@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Layouts" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-Share" transform="translate(-327.000000, -622.000000)" fill="#999999">
+            <g id="Share-color-circles" transform="translate(0.000000, 612.000000)">
+                <g id="Group-Expanded" transform="translate(12.000000, 1.000000)">
+                    <g id="More" transform="translate(307.000000, 5.000000)">
+                        <path d="M26,4 L26,4 L26,4 C35.9411255,4 44,12.0588745 44,22 L44,22 C44,31.9411255 35.9411255,40 26,40 L26,40 C16.0588745,40 8,31.9411255 8,22 L8,22 L8,22 C8,12.0588745 16.0588745,4 26,4 L26,4 Z M20.516,22.02 C20.516,20.436 19.652,19.608 18.068,19.608 C16.484,19.608 15.62,20.436 15.62,22.02 C15.62,23.64 16.484,24.432 18.068,24.432 C19.652,24.432 20.516,23.604 20.516,22.02 Z M28.652,22.02 C28.652,20.436 27.788,19.608 26.204,19.608 C24.62,19.608 23.756,20.436 23.756,22.02 C23.756,23.64 24.62,24.432 26.204,24.432 C27.788,24.432 28.652,23.604 28.652,22.02 Z M36.788,22.02 C36.788,20.436 35.924,19.608 34.34,19.608 C32.756,19.608 31.892,20.436 31.892,22.02 C31.892,23.64 32.756,24.432 34.34,24.432 C35.924,24.432 36.788,23.604 36.788,22.02 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
