@@ -8,7 +8,9 @@ module.exports = function* (write) {
     // category
     var category = this.params.category;
     var title = this.params.title || 'index';
-    var _tpl = category + '/' + title + '.html';
+    // dist目录下静态资源不走逻辑
+    if(['js','css','image'].indexOf(category) > -1){ return; }
     
+    var _tpl = category + '/' + title + '.html';
     write(this.render('policy/' + _tpl, {}));
 };

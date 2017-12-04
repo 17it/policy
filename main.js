@@ -23,11 +23,12 @@ module.exports = {
         });
     
         // static server
-        app.use(koaStatic(abspath("dist/"), {extensions: ['.js','.css','.png','.jpg','.gif']}));
-    
+        // app.use(koaStatic(abspath("dist/"), {extensions: ['.js','.css','.png','.jpg','.gif']}));
+        app.use(koaStatic(abspath("dist/")));
+        
         // router
         app.use(router.routes());
-
+        
         var port = global.env.PORT || 8001;
         var name = global.env.NAME || 'policy';
         
