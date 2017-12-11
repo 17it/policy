@@ -3,7 +3,7 @@ require('../../.policy-conf');
 
 Object.assign(global.env, {
     NAME: 'policy',
-    PORT: 8081
+    PORT: 8080
 });
 
 global.$require = function (id) {
