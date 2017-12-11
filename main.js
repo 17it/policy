@@ -1,44 +1,51 @@
 /**
- * 主入口文件，该文件为各个配置文件共用
+ * 主文件入口
  */
-var app = require('koa')();
-var koaStatic = require('koa-static');
-module.exports = {
-    init: function (router) {
-        var SERVER_IP = global.env.SERVER_IP || '-';
-        global.env.PRO_MODE && (console.log = function () {}); // 线上不记log日志
-        global.abspath = function (path) {
-            return __dirname + '/' + path;
-        };
+const app = require('koa')();
+const static = require('koa-static');
 
+const main = {
+    init: function (route) {
+        const SERVER_IP = global.env.SERVER_IP || '-';
+        // 正式环境不记录日志
+        global.env.PRO_MODE && (console.log = function () {});
+        global.abspath = function (path) { return __dirname + '/' + path; };
+        
         app.use(function* (next) {
             this.set('From-Svr', SERVER_IP);
             try {
                 yield next;
-                // this.status === 404 && this.redirect('/error/?msg=404&url=' + encodeURIComponent(this.url));
-            } catch (e) {
-                console.error('server error:', e, this);
-                this.path === '/error/' || this.redirect('/error/?msg=' + (e.status || '500') + '&url=' + encodeURIComponent(this.url));
+                this.status === 404 && this.redirect('/404.html?url=' + encodeURIComponent(this.url));
+            } catch (err) {
+                console.error('server error', err, this);
+                this.redirect('/error.html?msg=' + (e.status || '500') + '&url=' + encodeURIComponent(this.url));
+                this.app.emit('error', err, this);
             }
         });
-    
-        // static server
-        app.use(koaStatic(abspath("dist/"), {extensions: ['.js','.css','.png','.jpg','.gif']}));
-    
-        // router
-        app.use(router.routes());
-
-        var port = global.env.PORT || 8001;
-        var name = global.env.NAME || 'policy';
         
-        app.listen(port, function () {
-            console.info(name + ' is working on port ' + port);
+        // static server
+        app.use(static(abspath('dist/')));
+    
+        // route
+        app.use(route.routes());
+        
+        // on error
+        app.on('error', function (err, ctx) {
+            console.error('app error', err, ctx);
         });
-
-        // 捕获异步操作抛出的异常（koa捕获不到）
-        process.on('uncaughtException', function (e) {
-            console.error('uncaught exception: ' + e);
-            console.error(e.stack);
+        
+        const port = global.env.PORT || 8001;
+        const name = global.env.NAME || 'policy';
+        app.listen(port, function () {
+            console.log(name, 'is working on port', port);
+        });
+        
+        // catch exception which koa can not catch
+        process.on('uncaughtException', function (err) {
+            console.log('uncaughtException', err);
+            console.log(err.stack);
         });
     }
 };
+
+module.exports = main;

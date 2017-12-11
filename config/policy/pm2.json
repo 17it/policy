@@ -1,13 +1,13 @@
 [
-    {
-        "name": "policy",
-        "script": "./config/policy/app.js",
-        "merge_logs" : true,
-        "error_file": "/policy/logs/node/err_policy.log",
-        "out_file": "/policy/logs/node/out_policy.log",
-        "pid_file": "/policy/logs/node/policy.pid",
-        "log_date_format": "YYYY-MM-DD HH:mm",
-        "max_memory_restart": "500M",
-        "instances": 4
-    }
+  {
+    "name": "policy",
+    "script": "./config/policy/app.js",
+    "merge_logs" : true,
+    "error_file": "/policy/logs/node/err_policy.log",
+    "out_file": "/policy/logs/node/out_policy.log",
+    "pid_file": "/policy/logs/node/policy.pid",
+    "log_date_format": "YYYY-MM-DD HH:mm",
+    "max_memory_restart": "500M",
+    "instances": 4
+  }
 ]

@@ -1,13 +1,14 @@
 {
-  "name": "policy",
-  "version": "0.0.1",
+  "name": "policy_code",
+  "version": "1.0.0",
   "description": "bank",
   "private": true,
   "scripts": {
-    "start": "node app.js",
     "policy": "node ./config/policy/app.js",
     "policy:pm2": "pm2 start ./config/policy/pm2.json"
   },
+  "author": "tony",
+  "license": "ISC",
   "dependencies": {
     "async-co": "^1.5.0",
     "co": "^4.0.0",
@@ -22,6 +23,5 @@
     "qrcode": "^0.9.0",
     "moment": "^2.15.1",
     "uglify-js": "^2.6.1"
-  },
-  "devDependencies": {}
+  }
 }
