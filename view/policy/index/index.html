@@ -8,10 +8,11 @@
                 <div class="main-container">
                     <div class="text-wrapper">
                         <h1>
-                            Compare and save on life insurance
+                            &nbsp;
+                            &nbsp;
                         </h1>
                         <h2>
-                            Get the protection you need&#x2014;and save over 40%
+                            无论是您为爱人选择一份保障，为子女教育储存一份资金，亦或是为全家、员工健康创造安心环境。
                         </h2>
                     </div>
                     <div class="form-wrapper">
@@ -31,10 +32,42 @@
                             <div class="selectfield">
                                 <div class="field">
                                     <label class="integer optional control-label" for="life_policy_preferences_coverage_amount">
-                                        Coverage
+                                        您希望得到的保障
                                     </label>
                                     <div class="selectbox">
                                         <div class="small-only-mbn select optional life_policy_preferences_coverage_amount">
+                                            <div class="label-row">
+                                            </div>
+                                            <select class="select optional sensitive radius" name="life_policy_preferences[term]"
+                                                    id="life_policy_preferences_term">
+                                                <option value="5">
+                                                    重疾险
+                                                </option>
+                                                <option value="10">
+                                                    人寿保险
+                                                </option>
+                                                <option value="15">
+                                                    15 years
+                                                </option>
+                                                <option selected="selected" value="20">
+                                                    20 years
+                                                </option>
+                                                <option value="25">
+                                                    25 years
+                                                </option>
+                                                <option value="30">
+                                                    30 years
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="string optional control-label" for="life_policy_preferences_term">
+                                        您希望覆盖的金额
+                                    </label>
+                                    <div class="selectbox">
+                                        <div class="input select optional life_policy_preferences_term">
                                             <div class="label-row">
                                             </div>
                                             <select class="select optional sensitive radius" name="life_policy_preferences[coverage_amount]"
@@ -154,41 +187,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="field">
-                                    <label class="string optional control-label" for="life_policy_preferences_term">
-                                        Term
-                                    </label>
-                                    <div class="selectbox">
-                                        <div class="input select optional life_policy_preferences_term">
-                                            <div class="label-row">
-                                            </div>
-                                            <select class="select optional sensitive radius" name="life_policy_preferences[term]"
-                                                    id="life_policy_preferences_term">
-                                                <option value="5">
-                                                    5 years
-                                                </option>
-                                                <option value="10">
-                                                    10 years
-                                                </option>
-                                                <option value="15">
-                                                    15 years
-                                                </option>
-                                                <option selected="selected" value="20">
-                                                    20 years
-                                                </option>
-                                                <option value="25">
-                                                    25 years
-                                                </option>
-                                                <option value="30">
-                                                    30 years
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="cta">
-                                <input type="submit" name="commit" value="Get Quotes" class="button radius button action">
+                                <input type="submit" name="commit" value="开始" class="button radius button action">
                                 <small>
                                     <a href="/life-insurance/quotes/basic_info">
                                         Not sure how much you need?

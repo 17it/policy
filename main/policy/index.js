@@ -1,10 +1,6 @@
 /**
- * created by tym
+ * 首页
  */
-// var model = require('./policyModel');
-// var request = $require('lib/request');
-
-module.exports = function* (write) {
-    
-    write(this.render('policy/index/index.html', {}));
+module.exports = function* (next) {
+    next(this.render('policy/index/index.html', {}));
 };

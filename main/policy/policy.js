@@ -1,16 +1,10 @@
 /**
- * created by tym
+ * 通用路由
  */
-// var model = require('./policyModel');
-// var request = $require('lib/request');
-
-module.exports = function* (write) {
-    // category
-    var category = this.params.category;
-    var title = this.params.title || 'index';
-    // dist目录下静态资源不走逻辑
-    if(['js','css','image'].indexOf(category) > -1){ return; }
+module.exports = function* (next) {
+    let category = this.params.category;
+    let title = this.params.title;
     
-    var _tpl = category + '/' + title + '.html';
-    write(this.render('policy/' + _tpl, {}));
+    let _tpl = category + '/' + title + '.html';
+    next(this.render('policy/' + _tpl, {}));
 };
