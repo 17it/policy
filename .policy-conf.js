@@ -8,7 +8,7 @@ global.env = {
 	SERVER_IP: '98.150',
 
 	// 生产环境模式
-	PRO_MODE: true,
+	PRO_MODE: false,
 
 	// 是否开启cbase，需要安装cbase的代理moxi
 	CBASE: false,
